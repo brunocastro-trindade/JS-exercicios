@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Space Mono', monospace;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #1a1a2e;
+    transition: background-color 0.6s ease;
+}
+.container {
+    text-align: center;
+    padding: 3rem 2rem;
+}
+.label-conceito {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(258, 255, 255, 0.6);
+    margin-bottom: 0.3rem;
+}
+h1 {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: clamp(3.5rem, 10vw, 7rem);
+    color: #fff;
+    letter-spacing: 0.05rem;
+    line-height: 1;
+    text-shadow: 0 0 40px rgba(255, 255, 255, 0.15);
+}
+.subtitle {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 0.5rem;
+    letter-spacing: 0.15rem;
+}
+.cor-atual-card {
+    margin: 2.5rem auto;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    padding: 1.2rem 2rem;
+    display: inline-block;
+    backdrop-filter: blur(10px);
+}
+.cor-hex {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.1em;
+    transition: transform 0.2s ease;
+}
+.btn-trocar {
+    font-family: "Space Mono", monospace;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 1rem 2.5rem;
+    border: none;
+    border-radius: 100px;
+    background: #fff;
+    color: #000;
+    cursor: pointer;
+    transition: transform 0.15s ease, opacity 0.15s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+}
+.btn-trocar:hover {
+    transform: scale(1.05);
+    opacity: 0.92;
+}
+.btn-trocar:active {
+    transform: scale(0.97);
+}
+.conceitos {
+    margin-top: 3rem;
+    max-width: 680px;
+    width: 100%;
+    text-align: left;
+}
+.conceitos h2 {
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.35);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.code-block {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 1.6rem 1.6rem;
+    margin-bottom: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+.code-block::before {
+    content: attr(data-conceito);
+    position: absolute;
+    top: 0.5rem;
+    right: 0.8rem;
+    font-size: 0.55rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.25);
+}
+pre {
+    font-family: "Space Mono", monospace;
+    font-size: 0.72rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.85);
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.c-keyword { color: #ff79c6; }
+.c-string { color: #f1fa8c; }
+.c-number { color: #bd93f9; }
+.c-comment { color: #6272a4; }
+.c-fn { color: #50fa7b; }
+.c-var { color: #8be9fd; }
+
+.contador {
+    margin-top: 2rem;
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.3);
+    letter-spacing: 0.1rem;
+}
+.contador span {
+    color: rgba(255, 255, 255, 0.07);
+    font-weight: 700;
+}

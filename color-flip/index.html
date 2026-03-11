@@ -1,34 +1,114 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Color Flipper || Simple</title>
-    <style></style>
-</head>
-<body>
-    <nav>
-        <div class="nav-center"></div>
-        <h4>color flipper</h4>
-        <ul class="nav-links">
-            <li>
-                <a href="index.html">Simple</a>
-            </li>
-            <li>
-                <a href="hex.html">hex</a>
-            </li>
-        </ul>
-    </nav>
-    <main>
-        <div class="container">
-            <h2>backgorund color : 
-                <span class="color">
-                    #f1f5f8
-                </span></span></h2>
-            <button class="btn btn-hero" id="btn">click me</button>
-        </div>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trocador de Cores</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Bebas+Neue&display=swap" rel="stylesheet"/>
 
-    </main>
-    <script src="app.js"></script>
+  <link rel="stylesheet" href="style.css"/>
+
+</head>
+
+<body>
+  <!--
+    <body> → Tudo que aparece visualmente na tela fica aqui dentro.
+  -->
+
+  <div class="container">
+  
+
+    <!-- Pequeno rótulo acima do título -->
+    <p class="label-conceito">Projeto 01 — JavaScript</p>
+
+    <!--
+      <h1> → Título principal da página. Deve existir apenas UM h1 por página.
+      <br/> → Quebra de linha dentro do texto.
+    -->
+    <h1>Trocador<br/>de Cores</h1>
+
+    <p class="subtitle">Clique no botão e veja a mágica acontecer</p>
+
+    <!-- 
+      Card que mostra o código HEX da cor atual.
+      id="corAtual" → identificador único usado pelo JavaScript para encontrar esse elemento.
+      IDs devem ser ÚNICOS na página (diferente de class, que pode repetir).
+    -->
+    <div class="cor-atual-card">
+      <div id="corAtual" class="cor-hex">#1a1a2e</div>
+    </div>
+
+    <!--
+      <button> → Elemento clicável nativo do HTML.
+      id="btnTrocar" → O JavaScript vai usar esse id para detectar o clique.
+      Sempre prefira <button> para ações, pois ele é acessível por teclado por padrão.
+    -->
+    <button id="btnTrocar" class="btn-trocar">🎲 Nova Cor</button>
+
+    <!-- ============================================================
+         SEÇÃO EDUCATIVA — Blocos de código explicados
+         Cada bloco mostra um conceito diferente do JavaScript
+    ============================================================ -->
+    <div class="conceitos">
+      <h2>📖 Como o código funciona</h2>
+
+      <!-- BLOCO 1: ARRAY -->
+      <div class="code-block" data-conceito="Array">
+        <pre><span class="c-comment">// ARRAY — Lista de valores guardados em uma variável
+// Usa colchetes [] com itens separados por vírgula</span>
+<span class="c-keyword">const</span> <span class="c-var">cores</span> = [
+  <span class="c-string">"#e63946"</span>, <span class="c-string">"#457b9d"</span>, <span class="c-string">"#2a9d8f"</span>,
+  <span class="c-string">"#e9c46a"</span>, <span class="c-string">"#f4a261"</span>, <span class="c-string">"#264653"</span>
+];
+<span class="c-comment">// cores[0] → "#e63946" (índices começam em 0!)</span></pre>
+      </div>
+
+      <!-- BLOCO 2: SELETORES -->
+      <div class="code-block" data-conceito="Seletores DOM">
+        <pre><span class="c-comment">// getElementById → seleciona pelo id="" exato do HTML
+// querySelector  → seleciona como no CSS (mais flexível)</span>
+<span class="c-keyword">const</span> <span class="c-var">btn</span>   = <span class="c-fn">document.getElementById</span>(<span class="c-string">'btnTrocar'</span>);
+<span class="c-keyword">const</span> <span class="c-var">texto</span> = <span class="c-fn">document.getElementById</span>(<span class="c-string">'corAtual'</span>);
+<span class="c-comment">// Com querySelector seria: document.querySelector('#btnTrocar')</span></pre>
+      </div>
+
+      <!-- BLOCO 3: NÚMERO ALEATÓRIO -->
+      <div class="code-block" data-conceito="Número Aleatório">
+        <pre><span class="c-comment">// Math.random() → decimal entre 0.000 e 0.999
+// Math.floor()  → arredonda para BAIXO (ex: 4.9 → 4)
+// cores.length  → quantidade de itens no array</span>
+<span class="c-keyword">const</span> <span class="c-var">i</span> = <span class="c-fn">Math.floor</span>(<span class="c-fn">Math.random</span>() * <span class="c-var">cores</span>.length);
+<span class="c-comment">// Exemplo: 0.73 × 6 = 4.38 → Math.floor = 4 → cores[4]</span></pre>
+      </div>
+
+      <!-- BLOCO 4: EVENTO + APLICAR COR -->
+      <div class="code-block" data-conceito="Evento + Estilo">
+        <pre><span class="c-comment">// addEventListener escuta o clique e dispara a função
+// document.body.style → acessa os estilos CSS do body</span>
+<span class="c-var">btn</span>.<span class="c-fn">addEventListener</span>(<span class="c-string">'click'</span>, <span class="c-keyword">function</span>() {
+  <span class="c-keyword">const</span> <span class="c-var">cor</span> = <span class="c-var">cores</span>[<span class="c-fn">Math.floor</span>(<span class="c-fn">Math.random</span>() * <span class="c-var">cores</span>.length)];
+  <span class="c-fn">document.body</span>.style.backgroundColor = <span class="c-var">cor</span>;
+  <span class="c-var">texto</span>.textContent = <span class="c-var">cor</span>;
+});</pre>
+      </div>
+
+    </div>
+    <!-- fim .conceitos -->
+
+    <!-- Contador de trocas realizadas -->
+    <p class="contador">Trocas realizadas: <span id="contador">0</span></p>
+
+  </div>
+  <!-- fim .container -->
+
+  <!--
+    Linkando o arquivo JavaScript AQUI, no FINAL do <body>.
+    ⚠️ MUITO IMPORTANTE: o script fica no final porque o navegador
+    lê o HTML de cima para baixo. Se o JS viesse antes dos elementos,
+    ele tentaria selecionar elementos que ainda não existem na página,
+    causando erro!
+  -->
+  <script src="script.js"></script>
+
 </body>
 </html>
